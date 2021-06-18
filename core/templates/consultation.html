@@ -1,0 +1,109 @@
+<!--using html5 doctype -->
+<!doctype html>
+
+<!--using language attribute-->
+<html lang="en">
+    <head>
+
+        <!--using character set attribute in meta tag-->
+        <meta charset="UTF-8">
+
+        <!--bootstrap-4 for mobile responsive-->
+        <!--using below meta tag to set width and initial zoom level-->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+
+        <!--link for input group prepend for adding text / icon in the input -->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+        <!--link for CSS-->
+        <link rel="stylesheet" type="text/css" href="\static\css\student.css">
+        
+    </head>
+
+    <body class = "gradient">
+
+        <a href = "{{ url_for('student.Login') }}" class = "nav-link navbar-brand float-right btn-danger" id = "logout" type = "button"> Logout </a>  
+        <br>
+        <br>
+        <div class = 'container'>
+
+              <h1 class = "text-light text-center">Request a free legal consultation</h1>
+              <p class="lead text-light text-center">Get a solution to your problem with legal help.</p>
+            
+            
+    
+            <div class = "card bg-light">
+                <div class = "card-body">
+                    {% with messages = get_flashed_messages() %}
+
+                    {% if messages %}
+
+                    {% for message in messages %}
+
+                    <div class="alert alert-success alert-dismissible">
+                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                        <strong>Success!</strong> {{message}} <a href="{{ url_for('student.Consultation', id = id) }}" class="alert-link">Launch another complaint!</a>. 
+                    </div>
+
+                    {% endfor %}
+
+                    {% endif %}
+                    
+                    {% endwith %}
+                    
+                    <form action = "{{ url_for('student.Consultation', id = id) }}" id = "student_consultation" name = "student_consultation" method = 'POST'>
+                        <label for = "category" class = "lbl"> Category : </label>
+                        
+                        <select class="form-control input_type" id="category" name = "category" >
+                            <option value = "" id = "select"> --Select-- </option>
+                            <option value = "Academics" > Academics </option>
+                            <option value = "Job oppurtunities" > Job oppurtunities </option>
+                            <option value = "Sports" > Sports </option>
+                            <option value = "Examination" > Examination </option>
+                            <option value = "Carrier" > Carrier </option>
+                            <option value = "Others" > Others </option>
+                        </select> 
+                        
+                        <br>
+
+                        <label for = "description" class = "lbl"> Description : </label>
+                        
+                        <textarea class="form-control" id="description" name = "description" rows="5"></textarea>
+
+                        <br>
+
+                        <br>
+                        <br>
+                        <br>
+
+                        <button type="reset" id="btnreset" class="btn btn-info"> Reset </button>
+                        <button type="submit" id="btnsubmit" class="btn btn-info float-right"> Submit </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </body>
+
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- plugin for jquery validation -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"> </script>
+    
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    
+    <!-- link for jquery validation -->
+    <script src = "{{('/static/jquery/student_val.js')}}"> </script>
+
+
+</html>
+
+           

@@ -1,0 +1,151 @@
+.title {
+    font-size: 35px;
+    text-align: center;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif, serif;
+}
+.col-md-7 p{
+    font-size: 18px;
+}
+.sub_title {
+    font-size: 25px;
+    text-align: center;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif, serif;
+}
+
+.navbar-brand{
+    font-size: 25px;
+}
+
+.page-footer{
+    background-attachment: rgb(46, 45, 45);
+    margin-top: 300px;
+}
+
+.gradient {
+    
+    background:#060242;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #4f4f50, #0c0c0c);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #4f4f50,  #0c0c0c); /*W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+
+.card_padding {
+    margin-top: 100px;
+}
+
+.info{
+    font-size: 20px;
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.error {
+    color: red;
+    text-align: center;
+    width: 100%;
+}
+
+.nav_content {
+    color: black;
+    font-weight: 100;
+}
+
+.card {
+    margin-top: auto;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.complaint_table {
+    margin-top: auto;
+    margin-left: 250px;
+    margin-right: 250px;
+}
+
+.container {
+    margin-top:100px;
+}
+
+.contact{
+    padding: 4%;
+    height: 400px;
+}
+.col-md-3{
+    background: #adabad;
+    padding: 4%;
+    border-top-left-radius: 0.5rem;
+    border-bottom-left-radius: 0.5rem;
+}
+.contact-info{
+    margin-top:10%;
+}
+.contact-info img{
+    margin-bottom: 15%;
+}
+.contact-info h2{
+    margin-bottom: 10%;
+}
+.col-md-9{
+    background: #fff;
+    padding: 3%;
+    border-top-right-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
+}
+.contact-form label{
+    font-weight:600;
+}
+.contact-form button{
+    background: #25274d;
+    color: #fff;
+    font-weight: 600;
+    width: 25%;
+}
+.contact-form button:focus{
+    box-shadow:none;
+}
+
+h2 {
+    font-size: 24px;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 30px;
+}
+
+h4 {
+    font-size: 19px;
+    line-height: 1.375em;
+    font-weight: 400;
+    margin-bottom: 30px;
+}  
+.container-fluid {
+padding: 60px 50px;
+}
+
+.thumbnail {
+padding: 0 0 15px 0;
+border: none;
+border-radius: 0;
+}
+.thumbnail img {
+width: 100%;
+height: 100%;
+margin-bottom: 10px;
+}
+.carousel-inner {
+position: relative;
+width: 100%;
+overflow: hidden;
+}
+.item h4 {
+font-size: 19px;
+line-height: 1.375em;
+font-weight: 400;
+font-style: italic;
+margin: 70px 0;
+}
+.item span {
+font-style: normal;
+}
+.fa {
+    width: 50px;
+}

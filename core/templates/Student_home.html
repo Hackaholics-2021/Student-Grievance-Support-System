@@ -1,0 +1,248 @@
+<!--using html5 doctype -->
+<!doctype html>
+
+<!--using language attribute-->
+<html lang="en">
+    <head>
+
+        <!--using character set attribute in meta tag-->
+        <meta charset="UTF-8">
+
+        <!--bootstrap-4 for mobile responsive-->
+        <!--using below meta tag to set width and initial zoom level-->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+
+        <!--link for input group prepend for adding text / icon in the input -->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+        <!--link for CSS-->
+        <link rel="stylesheet" type="text/css" href="\static\css\student.css">
+        
+    </head>
+
+    <body class = "gradient">
+        <nav class="navbar navbar-expand-sm bg-light navbar-light">
+            <!-- Brand -->
+            <a class="navbar-brand" href="#"> Hi, {{name}}! </a>
+
+          
+            <!-- Links -->
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link navbar-brand" href="{{ url_for('student.About_us') }}"> About us </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link navbar-brand" href="#"> Contact us </a>
+                </li>
+          
+                <!-- Dropdown -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle navbar-brand" href="#" id="navbardrop" data-toggle="dropdown">
+                        Your cases
+                    </a>
+
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="{{ url_for('student.Display_complaints', id = id, status = 'c') }}"> Solved   {{solved}} </a>
+                        <a class="dropdown-item" href="{{ url_for('student.Display_complaints', id = id, status = 'nc') }}"> In progress   {{un_solved}} </a>
+                    </div>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle navbar-brand" href="#" id="navbardrop" data-toggle="dropdown">
+                        Your Consultations
+                    </a>
+
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="{{ url_for('student.Display_consultations', id = id, status = 'c') }}"> Closed    </a>
+                        <a class="dropdown-item" href="{{ url_for('student.Display_consultations', id = id, status = 'nc') }}"> Pending    </a>
+                    </div>
+                </li>
+            </ul>
+
+            <ul class = "navbar-nav ml-auto">
+                <li class="nav-item"> 
+                    <a class="nav-link navbar-brand" href="{{ url_for('student.Login') }}"> 
+                        Logout 
+                    </a> 
+                </li>
+            </ul>
+        </nav>
+
+        <section class="jumbotron text-center gradient">
+            <div class="container">
+              <h1 class="jumbotron-heading text-light">Welcome to Student Grievance Support System 2020</h1>
+              <p class="lead text-light"> We take your problems to the legal desk and provide satisfactory solutions.</p>
+              <p>
+                <a href="{{ url_for('student.Complaint', id = id) }}" class="btn btn-danger my-2">Write a Complaint</a>
+              </p>
+            </div>
+        </section>
+
+        <section class="jumbotron text-center gradient">
+            <div class="container">
+              <h1 class="jumbotron-heading text-light">Legal Consultation</h1>
+              <p class="lead text-light"> The highly qualified team of Legalor’s attorneys and consultants will be glad to provide necessary legal assistance.</p>
+              <p>
+                <a href="{{ url_for('student.Consultation', id = id) }}" class="btn btn-danger my-2">Free Consultation</a>
+              </p>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="page-footer font-small stylish-color-dark pt-4 text-light bg-dark">
+        <!-- Footer Links -->
+            <div class="container text-center text-md-left ">
+      
+                <!-- Grid row -->
+                <div class="row">
+      
+                    <!-- Grid column -->
+                    <div class="col-md-4 mx-auto">
+      
+                        <!-- Links -->
+                        <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Links</h5>
+      
+                        <ul class="list-unstyled">
+                            <li>
+                                <a href="#!">www.google.com</a>
+                            </li>
+                            <li>
+                                <a href="#!">www.wikepedia.com</a>
+                            </li>
+                            <li>
+                                <a href="#!">www.studentgrievanvesystem.in</a>
+                            </li>
+                        </ul>
+      
+                    </div>
+                    <!-- Grid column -->
+      
+                    <hr class="clearfix w-80 d-md-none">
+      
+                    <!-- Grid column -->
+                    <div class="col-md-2 mx-auto">
+    
+                        <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Menu</h5>
+      
+                        <ul class="list-unstyled">
+                            <li>
+                                <a href="{{ url_for('student.Login') }}">Home</a>
+                            </li>
+                            <li>
+                                <a href="{{ url_for('student.About_us') }}">About</a>
+                            </li>
+                            <li>
+                                <a href="#">Contact</a>
+                            </li>
+                            <li>
+                                <a href="{{ url_for('student.Login') }}">Logout</a>
+                            </li>
+                        </ul>
+      
+                    </div>
+                    <!-- Grid column -->
+      
+                    <hr class="clearfix w-100 d-md-none">
+      
+                    <!-- Grid column -->
+                    <div class="col-md-2 mx-auto">
+      
+                        <!-- Links -->
+                        <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Contact</h5>
+                        <p>+91 1234567890</p>
+                            
+                    </div>
+                    <!-- Grid column -->
+      
+                    <hr class="clearfix w-100 d-md-none">
+      
+                    <!-- Grid column -->
+                    <div class="col-md-2 mx-auto">
+      
+                        <!-- Links -->
+                        <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Address</h5>
+                        <p>Building No.123, ABC Street, Chennai-001</p>
+                    </div>
+                    <!-- Grid column -->
+      
+                </div>
+                <!-- Grid row -->
+      
+            </div>
+            <!-- Footer Links -->
+      
+            <hr>
+      
+            <!-- Call to action -->
+            <ul class="list-unstyled list-inline text-center py-2">
+                <li class="list-inline-item">
+                    <h5 class="mb-1">Register for free</h5>
+                </li>
+                <li class="list-inline-item">
+                    <a href="#!" class="btn btn-danger btn-rounded">Sign up!</a>
+                </li>
+            </ul>
+            <!-- Call to action -->
+      
+            <hr>
+      
+            <!-- Social buttons -->
+            <ul class="list-unstyled list-inline text-center">
+                <li class="list-inline-item">
+                    <a class="btn-floating btn-fb mx-1">
+                    <i class="fab fa-facebook-f"> </i>
+                    </a>
+                </li>
+                <li class="list-inline-item">
+                    <a class="btn-floating btn-tw mx-1">
+                    <i class="fab fa-twitter"> </i>
+                    </a>
+                </li>
+                <li class="list-inline-item">
+                    <a class="btn-floating btn-gplus mx-1">
+                    <i class="fab fa-google-plus-g"> </i>
+                    </a>
+                </li>
+                <li class="list-inline-item">
+                    <a class="btn-floating btn-li mx-1">
+                    <i class="fab fa-linkedin-in"> </i>
+                    </a>
+                </li>
+                <li class="list-inline-item">
+                    <a class="btn-floating btn-dribbble mx-1">
+                    <i class="fab fa-dribbble"> </i>
+                    </a>
+                </li>
+            </ul>
+            <!-- Social buttons -->
+    
+            <!-- Copyright -->
+            <div class="footer-copyright text-center py-3">© 2020 Copyright:
+                <a href="https://mdbootstrap.com/"> All Rights Reserved.</a>
+            </div>
+            <!-- Copyright -->
+    
+        </footer>
+        <!-- Footer -->
+    </body>
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- plugin for jquery validation -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"> </script>
+    
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+    <!-- link for jquery validation -->
+    <script src = "{{('/static/jquery/student_val.js')}}"> </script>
+
+
+</html>

@@ -1,0 +1,174 @@
+<!--using html5 doctype -->
+<!doctype html>
+
+<!--using language attribute-->
+<html lang="en">
+    <head>
+
+        <!--using character set attribute in meta tag-->
+        <meta charset="UTF-8">
+
+        <!--bootstrap-4 for mobile responsive-->
+        <!--using below meta tag to set width and initial zoom level-->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+
+        <!--link for input group prepend for adding text / icon in the input -->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+        <!--link for CSS-->
+        <link rel="stylesheet" type="text/css" href="\static\css\student.css">
+        
+    </head>
+
+    <body class = "gradient">
+        <!-- <a class="nav-link navbar-brand" href="{{ url_for('student.Login') }}">  -->
+        <a href = "{{ url_for('student.Login') }}" class = "nav-link navbar-brand float-right btn-danger" id = "logout" type = "button"> Logout </a>  
+        <!-- </a>  -->
+                
+
+        <!-- table format.. -->
+
+        
+        <br>
+        <br>
+        <div class ="complaint_table ">
+            <table class="table table-hover text-light">
+                
+                <div class = "container text-center text-light">
+
+                    <h1> {{name}}  Priority cases</h1>
+                    <p>All {{name}}  Priority cases are listed below . Click view button to view the cases. If you are not satisfied with the solution click reopen button to reopen the case. </p>
+                </div>
+                <tr>
+                    <th> Complaint_Id </th>
+                    <th> Priority </th>
+                    <th> Status </th>
+                    <th> Description </th>
+                    <th> Category </th>
+                    <th> Comments </th>
+                    <th> Id </th>
+                    <th> Action </th>
+                </tr>
+                {% for row in data %}
+                <tr>
+                    <td> {{row.Complaint_Id}} </td>
+                    <td> {{row.Priority}} </td>
+                    <td> {{row.Status}} </td>
+                    <td> {{row.Description}} </td>
+                    <td> {{row.Category}} </td>
+                    <td> {{row.Comments}} </td>
+                    <td> {{row.Id}} </td>
+                    <td> 
+                        <button type = "button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#edit{{row.Complaint_Id}}"> View </button>
+                    </td>
+
+                </tr>
+                <div id="edit{{row.Complaint_Id}}" class="modal fade">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <!-- Modal Header -->
+                            <div class="modal-header">
+                                <h4 class="modal-title"> View Details </h4>
+                                <button type="button"  class="close" data-dismiss="modal">&times;</button>
+                            </div>
+        
+                            <!-- Modal body -->
+                            <div class="modal-body">
+                                <form action = "{{ url_for('student.Student_cases', id = row.Complaint_Id) }}" method="POST">
+        
+                                    <!--label for="id"> ID: </label-->
+                                    <input type="hidden" name="id" value="{{row.Complaint_Id}}">
+        
+                                    <label for = "category" class = "lbl"> Category : </label>
+                                
+                                    <select class="form-control input_type" id="category" name = "category">
+                                        <option value = "" id = "select" disabled> --Select-- </option>
+                                        <option value = "Academics" {{ 'selected' if row.Category == 'Academics'}} disabled> Academics </option>
+                                        <option value = "Infrastructre" {{ 'selected' if row.Category == 'Infrastructre'}} disabled> Infrastructre </option>
+                                        <option value = "Cleanliness" {{ 'selected' if row.Category == 'Cleanliness'}} disabled> Cleanliness </option>
+                                        <option value = "Examination" {{ 'selected' if row.Category == 'Examination'}} disabled> Examination </option>
+                                        <option value = "Staffs" {{ 'selected' if row.Category == 'Staffs'}} disabled> Staffs </option>
+                                        <option value = "Others" {{ 'selected' if row.Category == 'Others'}} disabled> Others </option>
+                                    </select> 
+                                
+                                    <br>
+        
+                                    <label for = "description" class = "lbl"> Description : </label>
+                                
+                                    <textarea class="form-control" id="description" name = "description" rows="3" disabled> {{row.Description}} </textarea>
+        
+                                    <br>
+        
+                                    <label for = "priority" class = "lbl"> Priority : </label>
+        
+                                    <select class="form-control input_type" id="priority" name = "priority">
+                                        <option value = "" id = "select" disabled> --Select-- </option>
+                                        <option value = "High" {{ 'selected' if row.Priority == 'High'}} disabled> High </option>
+                                        <option value = "Medium" {{ 'selected' if row.Priority == 'Medium'}} disabled> Medium </option>
+                                        <option value = "Low" {{ 'selected' if row.Priority == 'Low'}} disabled> Low </option>
+                                    </select> 
+                                    <br>
+        
+                                    <label for = "status" class = "lbl"> Status : </label>
+        
+                                    <select class="form-control input_type" id="status" name = "status" >
+                                        <option value = "" id = "select"> --Select-- </option>
+                                        <option value = "Open" {{ 'selected' if row.Status == 'Open'}} disabled > Open </option>
+                                        <option value = "Addressing" {{ 'selected' if row.Status == 'Addressing'}} disabled > Addressing </option>
+                                        <option value = "Closed" {{ 'selected' if row.Status == 'Closed'}} disabled > Closed </option>
+                                    </select>
+        
+                                    <br>
+        
+                                    <label for = "comments" class = "lbl"> Comments : </label>
+        
+                                    <textarea class="form-control" id="comments" name = "comments" rows="3" disabled > {{row.Comments}} </textarea>
+                                
+                                    <div class="form-group">
+                                        <div class="modal-footer">
+                                            {% if name == 'Solved' %}
+                                                <a href = "{{ url_for('student.Reopen_case', complaint_id = complaint_id) }}" class = "btn btn-info" id = "reopen" type = "submit"> Reopen </a>
+                                                <button type="button" id="cancel" class="btn btn-secondary" data-dismiss="modal"> Accept </button>
+                                            {% else %}
+                                                <!-- <button type="submit" id="btnupdate" class="btn btn-info"> Reopen </button> -->
+                                                <button type="button" id="cancel" class="btn btn-secondary" data-dismiss="modal"> Accept </button>
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
+            {% endfor %}
+    
+            </table>
+    
+            <a href = "{{ url_for('student.Back_to_login',id = student_id) }}" class = "btn btn-danger float-left" id = "previous_in_display_complaints" type = "button"> Go Back </a>
+            
+        </div>
+        
+    </body>
+    
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    
+    <!-- plugin for jquery validation -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"> </script>
+        
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    
+    <!-- link for jquery validation -->
+    <script src = "{{('/static/jquery/student_val.js')}}"> </script>
+        
+        
+</html>
+    

@@ -1,0 +1,294 @@
+<!--using html5 doctype -->
+<!doctype html>
+
+<!--using language attribute-->
+<html lang="en">
+    <head>
+
+        <!--using character set attribute in meta tag-->
+        <meta charset="UTF-8">
+
+        <!--bootstrap-4 for mobile responsive-->
+        <!--using below meta tag to set width and initial zoom level-->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+
+        <!--link for input group prepend for adding text / icon in the input -->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+        <!--link for CSS-->
+        <link rel="stylesheet" type="text/css" href="\static\css\student.css">
+        
+    </head>
+
+    <body class = "gradient">
+        <div class="jumbotron p-2 title">
+            Student Grievance System 2020
+        </div>
+
+        <h1 class = "title text-light"> Login </h1>
+        
+        <div class = "container">
+            <div class = "row">
+                <div class = "col-md-7">
+                    <h1 class = "text-light"> Welcome to Student Grievance Support system! </h1>
+                    <p class = "text-light "> We take your problems to the legal desk and provide satisfactory solutions. </p>
+                </div>
+
+                <div class = "col-md-5">
+                    <div class = "card card_padding">
+
+                        {% with messages = get_flashed_messages() %}
+
+                        {% if messages %}
+
+                        {% for message in messages %}
+
+                        <div class="alert alert-danger alert-dismissible">
+                            <button type="button" class="close" data-dismiss="alert">&times;</button>
+                            <strong> {{message}} </strong> 
+                        </div>
+
+                        
+                        {% endfor %}
+
+                        {% endif %}
+                    
+                        {% endwith %}
+
+                        <div class = "card-body">
+                            <form action = "{{ url_for('student.Login') }}" id = "login" name = "login" method = 'POST'>
+                                <label for = "email" class = "lbl"> Email Id : </label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text bg-light fas fa-envelope"> </span>
+                                    </div>
+                                    <input type = "email" id="email" name = "email" value = "{{data}}" class="form-control" placeholder="Enter the email id">
+                                </div>
+                                <br>
+
+                                <label for = "password" class = "lbl"> Password : </label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text light fas fa-key"> </span>
+                                    </div>
+                                    <input type = "password" name="password" id="password" value = "" class="form-control" placeholder = "Enter the Password">
+                                </div>
+
+                                <br>
+                        
+                                <button type="submit" id="btnsubmit" class="btn btn-info"> Login </button>
+                            </form>
+
+                            <p class = "mt-2"> Are you a new member? <a href = "{{ url_for('student.Register') }}"> Register here </a> </p>
+
+                        </div>
+                    </div>
+                </div>
+            </div>        
+        </div>
+
+        <div class="container contact">
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="contact-info">
+                        <img src="https://image.ibb.co/kUASdV/contact-image.png" alt="image"/>
+                        <h2>Contact Us</h2>
+                        <h4>We would love to hear from you !</h4>
+                    </div>
+                </div>
+                <div class="col-md-9">
+                    <div class="contact-form">
+                        <div class="form-group">
+                          <label class="control-label col-sm-2" for="fname">First Name:</label>
+                          <div class="col-sm-10">          
+                            <input type="text" class="form-control" id="fname" placeholder="Enter First Name" name="fname">
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label class="control-label col-sm-2" for="lname">Last Name:</label>
+                          <div class="col-sm-10">          
+                            <input type="text" class="form-control" id="lname" placeholder="Enter Last Name" name="lname">
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label class="control-label col-sm-2" for="email">Email:</label>
+                          <div class="col-sm-10">
+                            <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label class="control-label col-sm-2" for="comment">Comment:</label>
+                          <div class="col-sm-10">
+                            <textarea class="form-control" rows="5" id="comment"></textarea>
+                          </div>
+                        </div>
+                        <div class="form-group">        
+                          <div class="col-sm-offset-2 col-sm-10">
+                            <button type="submit" class="btn btn-default">Submit</button>
+                          </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+        <br>      
+
+        <!-- Footer -->
+        <footer class="page-footer font-small stylish-color-dark pt-4 text-light bg-dark">
+            <!-- Footer Links -->
+            <div class="container text-center text-md-left ">
+        
+                <!-- Grid row -->
+                <div class="row">
+        
+                    <!-- Grid column -->
+                    <div class="col-md-4 mx-auto">
+        
+                        <!-- Links -->
+                        <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Links</h5>
+        
+                        <ul class="list-unstyled">
+                            <li>
+                                <a href="#!">www.google.com</a>
+                            </li>
+                            <li>
+                                <a href="#!">www.wikepedia.com</a>
+                            </li>
+                            <li>
+                                <a href="#!">www.studentgrievanvesystem.in</a>
+                            </li>
+                        </ul>
+        
+                    </div>
+                    <!-- Grid column -->
+        
+                    <hr class="clearfix w-80 d-md-none">
+        
+                    <!-- Grid column -->
+                    <div class="col-md-2 mx-auto">
+    
+                        <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Menu</h5>
+        
+                        <ul class="list-unstyled">
+                            <li>
+                                <a href="{{ url_for('student.Login') }}">Home</a>
+                            </li>
+                            <li>
+                                <a href="{{ url_for('student.About_us') }}">About</a>
+                            </li>
+                            <li>
+                                <a href="#">Contact</a>
+                            </li>
+                            <li>
+                                <a href="{{ url_for('student.Login') }}">Logout</a>
+                            </li>
+                        </ul>
+        
+                    </div>
+                    <!-- Grid column -->
+        
+                    <hr class="clearfix w-100 d-md-none">
+        
+                    <!-- Grid column -->
+                    <div class="col-md-2 mx-auto">
+        
+                        <!-- Links -->
+                        <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Contact</h5>
+                        <p>+91 1234567890</p>
+                            
+                    </div>
+                    <!-- Grid column -->
+        
+                    <hr class="clearfix w-100 d-md-none">
+        
+                    <!-- Grid column -->
+                    <div class="col-md-2 mx-auto">
+        
+                        <!-- Links -->
+                        <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Address</h5>
+                        <p>Building No.123, ABC Street, Chennai-001</p>
+                    </div>
+                    <!-- Grid column -->
+        
+                </div>
+                <!-- Grid row -->
+        
+            </div>
+            <!-- Footer Links -->
+        
+            <hr>
+        
+            <!-- Call to action -->
+            <ul class="list-unstyled list-inline text-center py-2">
+                <li class="list-inline-item">
+                    <h5 class="mb-1">Register for free</h5>
+                </li>
+                <li class="list-inline-item">
+                    <a href="#!" class="btn btn-danger btn-rounded">Sign up!</a>
+                </li>
+            </ul>
+            <!-- Call to action -->
+        
+            <hr>
+        
+            <!-- Social buttons -->
+            <ul class="list-unstyled list-inline text-center">
+                <li class="list-inline-item">
+                    <a class="btn-floating btn-fb mx-1">
+                    <i class="fab fa-facebook-f"> </i>
+                    </a>
+                </li>
+                <li class="list-inline-item">
+                    <a class="btn-floating btn-tw mx-1">
+                    <i class="fab fa-twitter"> </i>
+                    </a>
+                </li>
+                <li class="list-inline-item">
+                    <a class="btn-floating btn-gplus mx-1">
+                    <i class="fab fa-google-plus-g"> </i>
+                    </a>
+                </li>
+                <li class="list-inline-item">
+                    <a class="btn-floating btn-li mx-1">
+                    <i class="fab fa-linkedin-in"> </i>
+                    </a>
+                </li>
+                <li class="list-inline-item">
+                    <a class="btn-floating btn-dribbble mx-1">
+                    <i class="fab fa-dribbble"> </i>
+                    </a>
+                </li>
+            </ul>
+            <!-- Social buttons -->
+    
+            <!-- Copyright -->
+            <div class="footer-copyright text-center py-3">© 2020 Copyright:
+                <a href="https://mdbootstrap.com/"> All Rights Reserved.</a>
+            </div>
+            <!-- Copyright -->
+    
+        </footer>
+        <!-- Footer -->
+
+    </body>
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        
+    <!-- plugin for jquery validation -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"> </script>
+    
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+    <!-- link for jquery validation -->
+    <script src = "{{('/static/jquery/student_val.js')}}"> </script>
+
+</html>

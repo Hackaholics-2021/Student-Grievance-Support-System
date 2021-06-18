@@ -1,0 +1,329 @@
+<!--using html5 doctype -->
+<!doctype html>
+
+<!--using language attribute-->
+<html lang="en">
+    <head>
+
+        <!--using character set attribute in meta tag-->
+        <meta charset="UTF-8">
+
+        <!--bootstrap-4 for mobile responsive-->
+        <!--using below meta tag to set width and initial zoom level-->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+
+        <!--link for input group prepend for adding text / icon in the input -->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <!--link for CSS-->
+        <link rel="stylesheet" type="text/css" href="\static\css\student.css">
+        
+    </head>
+
+    <body class = "gradient">
+
+        <a href = "{{ url_for('student.Login') }}" class = "nav-link navbar-brand float-right btn-danger" id = "logout" type = "button"> Logout </a>  
+
+        <br>
+        <br>
+        <section class="jumbotron text-center gradient">
+            <div class="container">
+              <h1 class="jumbotron-heading text-light">Welcome to Student Grievance Support System 2020</h1>
+              <p class="lead text-light"> We take your problems to the legal desk and provide satisfactory solutions.</p>
+              <p>
+                <a href="{{ url_for('student.Complaint', id = id) }}" class="btn btn-danger my-2">Write a Complaint</a>
+              </p>
+            </div>
+        </section>
+
+        <div id="about" class="container-fluid bg-light text-dark">
+            <div class="row">
+                <div class="col-sm-8">
+                    <h1>What we do?</h1>
+                    <br>
+                    <h4>Trustworthy solutions for all of you!</h4>
+                    <br>
+                    <p>Now a days student lack support for showcasing their problems. We provide the best and legal solutions for everyone .</p>
+                    <br>
+                </div>
+                <div class="col-sm-4">
+                    <!-- <i class="fa fa-handshake-o text-light" aria-hidden="true"></i> -->
+                    <i class="fa fa-handshake-o " style="font-size:100px" aria-hidden="true"></i>
+                </div>
+            </div>
+        </div>
+          
+        <div class="container-fluid bg-light text-dark">
+            <div class="row">
+                <div class="col-sm-4">
+                    <i class="fa fa-cogs" style="font-size:100px" aria-hidden="true"></i>
+                </div>
+                <div class="col-sm-8">
+                    <h2>Our Values</h2>
+                    <br>
+                    <h4>Development of <strong>Trust</strong>  for students </h4>
+                    <h4>Better <strong>Interaction</strong>between clients and authorities </h4>
+                    <h4>Open <strong>24x7</strong> for solving your problems</h4>
+                    <br>
+                </div>
+            </div>
+        </div>
+          
+        <!-- Container (Services Section) -->
+        <div id="services" class="container-fluid text-center text-light">
+            <h2>LEGAL CONSULTATION</h2>
+            <h4>What we offer</h4>
+            <br>
+            <div class="row slideanim">
+                <div class="col-sm-4">
+                    <span class="glyphicon glyphicon-off logo-small"></span>
+                    <h4>ACADEMICS</h4>
+                    <p>Get a proffesional's help</p>
+                </div>
+                <div class="col-sm-4">
+                    <span class="glyphicon glyphicon-heart logo-small"></span>
+                    <h4>SPORTS</h4>
+                    <p>Get a proffesional's help</p>
+                </div>
+                <div class="col-sm-4">
+                    <span class="glyphicon glyphicon-lock logo-small"></span>
+                    <h4>JOB OPPURTUNITIES</h4>
+                    <p>Get free consultations</p>
+                </div>
+            </div>
+            <br>
+            <br>
+            <div class="row slideanim">
+                <div class="col-sm-4">
+                    <span class="glyphicon glyphicon-leaf logo-small"></span>
+                    <h4>EXAMINATIONS</h4>
+                    <p>Stressed about exams! Get advices to crack them.</p>
+                </div>
+                <div class="col-sm-4">
+                    <span class="glyphicon glyphicon-certificate logo-small"></span>
+                    <h4>CARRIER</h4>
+                    <p>Get free consultations</p>
+                </div>
+                <div class="col-sm-4">
+                    <span class="glyphicon glyphicon-wrench logo-small"></span>
+                    <h4>PERSONAL</h4>
+                    <p>Tell your problems..</p>
+                </div>
+            </div>
+        </div>
+          
+        <br>
+            
+        <h2 class = "text-light text-center">What our customers say</h2>
+        <div id="demo" class="carousel slide" data-ride="carousel">
+            <!-- Indicators -->
+            <ul class="carousel-indicators">
+                <li data-target="#demo" data-slide-to="0" class="active"></li>
+                <li data-target="#demo" data-slide-to="1"></li>
+                <li data-target="#demo" data-slide-to="2"></li>
+            </ul>
+        
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner text-light text-center" >
+                <div class="carousel-item active">
+                    <h4>"This website is the best. I am so happy with the result!"
+                        <br>
+                        <span>Devi shakthi, Mumbai</span>
+                        <br>
+                        <br>
+                        <hr>
+                        <br>
+                        <br>
+                    </h4>
+                </div>
+                <div class="carousel-item">
+                    <h4>"One word... WOW!!"
+                        <br>
+                        <span>John , delhi</span>
+                        <br>
+                        <br>
+                        <hr>
+                        <br>
+                        <br>
+                    </h4>
+                </div>
+                <div class="carousel-item">
+                    <h4>"Could I... BE any more happy with this company?"
+                        <br>
+                        <span>Chandana,chennai </span>
+                        <br>
+                        <br>
+                        <hr>
+                        <br>
+                        <br>
+                    </h4>
+                </div>
+            </div>
+        
+            <!-- Left and right controls -->
+            <a class="carousel-control-prev" href="#demo"  data-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+            </a>
+            <a class="carousel-control-next" href="#demo"  data-slide="next">
+                <span class="carousel-control-next-icon"></span>
+            </a>
+        </div>
+        
+
+        <!-- Footer -->
+        <footer class="page-footer font-small stylish-color-dark pt-4 text-light bg-dark">
+        <!-- Footer Links -->
+            <div class="container text-center text-md-left ">
+  
+                <!-- Grid row -->
+                <div class="row">
+  
+                    <!-- Grid column -->
+                    <div class="col-md-4 mx-auto">
+  
+                        <!-- Links -->
+                        <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Links</h5>
+  
+                        <ul class="list-unstyled">
+                            <li>
+                                <a href="#!">www.google.com</a>
+                            </li>
+                            <li>
+                                <a href="#!">www.wikepedia.com</a>
+                            </li>
+                            <li>
+                                <a href="#!">www.studentgrievanvesystem.in</a>
+                            </li>
+                        </ul>
+  
+                    </div>
+                    <!-- Grid column -->
+  
+                    <hr class="clearfix w-80 d-md-none">
+  
+                    <!-- Grid column -->
+                    <div class="col-md-2 mx-auto">
+
+                        <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Menu</h5>
+  
+                        <ul class="list-unstyled">
+                            <li>
+                                <a href="{{ url_for('student.Login') }}">Home</a>
+                            </li>
+                            <li>
+                                <a href="{{ url_for('student.About_us') }}">About</a>
+                            </li>
+                            <li>
+                                <a href="#">Contact</a>
+                            </li>
+                            <li>
+                                <a href="{{ url_for('student.Login') }}">Logout</a>
+                            </li>
+                        </ul>
+  
+                    </div>
+                    <!-- Grid column -->
+  
+                    <hr class="clearfix w-100 d-md-none">
+  
+                    <!-- Grid column -->
+                    <div class="col-md-2 mx-auto">
+  
+                        <!-- Links -->
+                        <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Contact</h5>
+                        <p>+91 1234567890</p>
+                        
+                    </div>
+                    <!-- Grid column -->
+  
+                    <hr class="clearfix w-100 d-md-none">
+  
+                    <!-- Grid column -->
+                    <div class="col-md-2 mx-auto">
+  
+                        <!-- Links -->
+                        <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Address</h5>
+                        <p>Building No.123, ABC Street, Chennai-001</p>
+                    </div>
+                    <!-- Grid column -->
+  
+                </div>
+                <!-- Grid row -->
+  
+            </div>
+            <!-- Footer Links -->
+  
+            <hr>
+  
+            <!-- Call to action -->
+            <ul class="list-unstyled list-inline text-center py-2">
+                <li class="list-inline-item">
+                    <h5 class="mb-1">Register for free</h5>
+                </li>
+                <li class="list-inline-item">
+                    <a href="#!" class="btn btn-danger btn-rounded">Sign up!</a>
+                </li>
+            </ul>
+            <!-- Call to action -->
+  
+            <hr>
+  
+            <!-- Social buttons -->
+            <ul class="list-unstyled list-inline text-center">
+                <li class="list-inline-item">
+                    <a class="btn-floating btn-fb mx-1">
+                    <i class="fab fa-facebook-f"> </i>
+                    </a>
+                </li>
+                <li class="list-inline-item">
+                    <a class="btn-floating btn-tw mx-1">
+                    <i class="fab fa-twitter"> </i>
+                    </a>
+                </li>
+                <li class="list-inline-item">
+                    <a class="btn-floating btn-gplus mx-1">
+                    <i class="fab fa-google-plus-g"> </i>
+                    </a>
+                </li>
+                <li class="list-inline-item">
+                    <a class="btn-floating btn-li mx-1">
+                    <i class="fab fa-linkedin-in"> </i>
+                    </a>
+                </li>
+                <li class="list-inline-item">
+                    <a class="btn-floating btn-dribbble mx-1">
+                    <i class="fab fa-dribbble"> </i>
+                    </a>
+                </li>
+            </ul>
+            <!-- Social buttons -->
+  
+            <!-- Copyright -->
+            <div class="footer-copyright text-center py-3">© 2020 Copyright:
+                <a href="https://mdbootstrap.com/"> All Rights Reserved.</a>
+            </div>
+            <!-- Copyright -->
+  
+        </footer>
+        <!-- Footer -->
+    </body>
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- plugin for jquery validation -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"> </script>
+    
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+    <!-- link for jquery validation -->
+    <script src = "{{('/static/jquery/student_val.js')}}"> </script>
+
+
+</html>

@@ -1,0 +1,190 @@
+<!--using html5 doctype -->
+<!doctype html>
+
+<!--using language attribute-->
+<html lang="en">
+    <head>
+
+        <!--using character set attribute in meta tag-->
+        <meta charset="UTF-8">
+
+        <!--bootstrap-4 for mobile responsive-->
+        <!--using below meta tag to set width and initial zoom level-->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+
+        <!--link for input group prepend for adding text / icon in the input -->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+        <!--link for CSS-->
+        <link rel="stylesheet" type="text/css" href="\static\css\student.css">
+        
+    </head>
+
+    <body class = "gradient">
+
+        <div class="jumbotron p-2 title">
+            Student Grievance System 2020
+        </div>
+
+        <div class="container text-light">
+            <p class = "sub_title"> Registration </p>
+
+            <p class = "info"> Proceed to register, by clicking any one of the below options </p>
+
+            <div class="accordion" id="input_options">
+                <form name = "registration" id = "registration" action = "{{ url_for('student.Register') }}" method = "POST">
+                    <div class="card">
+                        <div class="card-header" id="input_option_1">
+                            <h2 class="mb-0">
+                                <button class="btn btn-info" type="button" id = "student" data-toggle="collapse" data-target="#student_register_form" aria-expanded = "false" aria-controls="student_register_form">
+                                    Student
+                                </button>
+                            </h2>
+                        </div>
+                
+                        <div id="student_register_form" class="collapse text-dark" aria-labelledby="input_option_1" data-parent="#input_options">
+                            <div class="card-body background-light">
+                                <label for = "name" class = "lbl"> Name : </label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text light fas fa-user"> </span>
+                                    </div>
+                                    <input type = "text" id="name" name = "name" value = "" class="form-control" placeholder="Enter your full name">
+                                </div>
+                                <br>
+                                <br>
+                                
+                                <label for = "email" class = "lbl"> Email Id : </label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text bg-light fas fa-envelope"> </span>
+                                    </div>
+                                    <input type = "email" id="email" name = "email" value = "" class="form-control" placeholder="Enter the email id">
+                                </div> 
+                                <br>
+                                <br>
+
+                                <label for = "password" class = "lbl"> Password : </label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text light fas fa-key"> </span>
+                                    </div>
+                                    <input type = "password" name="password" id="password" value = "" class="form-control" placeholder = "Enter the Password">
+                                </div>
+                                <br>
+                                <br>
+
+                                <label for = "password" class = "lbl"> Confirm Password : </label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text light fas fa-key"> </span>
+                                    </div>
+                                    <input type = "password" name="confirm_password" id="confirm_password" value = "" class="form-control" placeholder = "Re-enter the Password">
+                                </div>
+                                <br>
+                                <br>
+
+                                <label for = "university" class = "lbl"> Name of Institution : </label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text light fas fa-university"> </span>
+                                    </div>
+                                    <input type = "text" name="university" id="university" value = "" class="form-control" placeholder = "Enter the name of Institution">
+                                </div>
+                                <br>
+                                <br>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header" id="input_option_2">
+                            <h2 class="mb-0">
+                                <button class="btn btn-info collapsed" type="button" id = "committee_member" data-toggle="collapse" aria-expanded = "false" data-target="#committee_register_form" aria-controls="committee_register_form">
+                                    Committee member
+                                </button>
+                            </h2>
+                        </div>
+
+                        <div id="committee_register_form" class="collapse text-dark" aria-labelledby="input_option_2" data-parent="#input_options">
+                            <div class="card-body background-light">
+                                <label for = "name" class = "lbl"> Name : </label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text light fas fa-user"> </span>
+                                    </div>
+                                    <input type = "text" id="c_name" name = "c_name" value = "" class="form-control" placeholder="Enter your full name">
+                                </div>
+                                <br>
+                                <br>
+                                
+                                
+                                <label for = "email" class = "lbl"> Email Id : </label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text bg-light fas fa-envelope"> </span>
+                                    </div>
+                                    <input type = "email" id="c_email" name = "c_email" value = "" class="form-control" placeholder="Enter the email id">
+                                </div> 
+                                <br>
+                                <br>
+
+                                <label for = "password" class = "lbl"> Password : </label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text light fas fa-key"> </span>
+                                    </div>
+                                    <input type = "password" name="c_password" id="c_password" value = "" class="form-control" placeholder = "Enter the Password">
+                                </div>
+                                <br>
+                                <br>
+
+                                <label for = "password" class = "lbl"> Confirm Password : </label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text light fas fa-key"> </span>
+                                    </div>
+                                    <input type = "password" name="c_confirm_password" id="c_confirm_password" value = "" class="form-control" placeholder = "Re-enter the Password">
+                                </div>
+                                <br>
+                                <br>
+   
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-body">
+                            <a href = "{{ url_for('student.Login') }}" class = "btn btn-dark float-left" id = "previous_in_register_page" type = "button"> Previous </a>
+
+                            <!-- <button type = "button" id = "previous_in_register_page" class="btn btn-dark float-left"> Previous </button> -->
+                            <button type = "submit" id = "register" class="btn btn-info float-right" style = "display:none"> Register </button>
+                            <br>
+                        </div>
+                    </div> 
+                </form>
+            </div>
+        </div>
+    </body>
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        
+    <!-- plugin for jquery validation -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"> </script>
+    
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+    <!-- link for jquery validation -->
+    <script src = "{{('/static/jquery/student_val.js')}}"> </script>
+
+</html>
+
+    
